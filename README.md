@@ -9,8 +9,8 @@ English | [中文](./README_CN.md)
 
 > **🔱 Fork note (`dtalker/ppt-master`).** This is a fork of [`hugohe3/ppt-master`](https://github.com/hugohe3/ppt-master) with two additions:
 >
-> 1. **Playable video / audio embedding** (the upstream `svg_to_pptx.py` renders static slides only). New `scripts/embed_media.py` (Step 7.4) embeds movies/audio into the exported PPTX via **named slots** (tag a rect with `data-media-slot` — no page numbers or coordinates), and **auto-wraps audio into a poster video** so it plays in Keynote. Guide: [`skills/ppt-master/references/media-embedding.md`](./skills/ppt-master/references/media-embedding.md).
-> 2. **`eink-magazine` visual style + `eink-duotone` palette** — an "电子墨水 × Monocle 杂志" editorial aesthetic (ink+paper duotone, serif-display headlines, monospace magazine chrome, dark↔light hero rhythm, no cards) adapted from [`op7418/guizang-ppt-skill`](https://github.com/op7418/guizang-ppt-skill). The source skill's WebGL fluid background and swipe interactivity are web-only and don't survive in PPTX; this ports the static design language (palette / typography / chrome / layout rhythm) with PPT-safe font mapping. See [`visual-styles/eink-magazine.md`](./skills/ppt-master/references/visual-styles/eink-magazine.md) and [`image-palettes/eink-duotone.md`](./skills/ppt-master/references/image-palettes/eink-duotone.md).
+> 1. **Playable video / audio embedding** (the upstream `svg_to_pptx.py` renders static slides only). New `scripts/embed_media.py` (Step 7.4) embeds movies/audio into the exported PPTX via **named slots** (tag a rect with `data-media-slot` — no page numbers or coordinates), and **auto-wraps audio into a poster video** so it plays in Keynote. Guide: [`skills/ppt-master-richard/references/media-embedding.md`](./skills/ppt-master-richard/references/media-embedding.md).
+> 2. **`eink-magazine` visual style + `eink-duotone` palette** — an "电子墨水 × Monocle 杂志" editorial aesthetic (ink+paper duotone, serif-display headlines, monospace magazine chrome, dark↔light hero rhythm, no cards) adapted from [`op7418/guizang-ppt-skill`](https://github.com/op7418/guizang-ppt-skill). The source skill's WebGL fluid background and swipe interactivity are web-only and don't survive in PPTX; this ports the static design language (palette / typography / chrome / layout rhythm) with PPT-safe font mapping. See [`visual-styles/eink-magazine.md`](./skills/ppt-master-richard/references/visual-styles/eink-magazine.md) and [`image-palettes/eink-duotone.md`](./skills/ppt-master-richard/references/image-palettes/eink-duotone.md).
 >
 > All credit for the base project goes to the upstream author, and for the e-ink magazine design language to guizang-ppt-skill.
 
@@ -217,7 +217,7 @@ Then install dependencies:
 pip install -r requirements.txt
 ```
 
-To update later (Option A / B): `python3 skills/ppt-master/scripts/update_repo.py`
+To update later (Option A / B): `python3 skills/ppt-master-richard/scripts/update_repo.py`
 
 > **Option C — Skill marketplace**: the repo ships `.claude-plugin/marketplace.json`, so it can be installed through the [Claude Code plugin marketplace](https://code.claude.com/docs/en/plugin-marketplaces) ecosystem:
 >
@@ -260,9 +260,9 @@ The AI handles everything — content analysis, visual design, SVG generation, a
 
 > **Output:** Native-shapes `.pptx` (directly editable) saved to `exports/<name>_<timestamp>.pptx`. A copy of `svg_output/` is always snapshotted to `backup/<timestamp>/svg_output/` for re-export / archival. Pass `--svg-snapshot` to additionally emit an SVG-image preview pptx alongside the native pptx in `exports/` (see [FAQ](./docs/faq.md)). Requires Office 2016+.
 
-> **Already have a `.pptx` you want to reuse?** Hand the AI that deck plus your material and ask it to "fill this deck with the new content" — it fills text, table, and chart data into your existing design and exports only the pages you pick, staying natively editable. See the [FAQ](./docs/faq.md) and [template-fill workflow](./skills/ppt-master/workflows/template-fill-pptx.md).
+> **Already have a `.pptx` you want to reuse?** Hand the AI that deck plus your material and ask it to "fill this deck with the new content" — it fills text, table, and chart data into your existing design and exports only the pages you pick, staying natively editable. See the [FAQ](./docs/faq.md) and [template-fill workflow](./skills/ppt-master-richard/workflows/template-fill-pptx.md).
 
-> **AI lost context?** Ask it to read `skills/ppt-master/SKILL.md`.
+> **AI lost context?** Ask it to read `skills/ppt-master-richard/SKILL.md`.
 
 > **Something went wrong?** Check the **[FAQ](./docs/faq.md)** — it covers model selection, layout issues, export problems, and more. Continuously updated from real user reports.
 
@@ -277,13 +277,13 @@ mkdir -p ~/.ppt-master
 cp /path/to/installed/ppt-master/.env.example ~/.ppt-master/.env
 ```
 
-PPT Master reads the current process environment first, then the first `.env` found in this order: current working directory, skill directory (e.g. `~/.agents/skills/ppt-master/.env`), clone repo root, `~/.ppt-master/.env`.
+PPT Master reads the current process environment first, then the first `.env` found in this order: current working directory, skill directory (e.g. `~/.agents/skills/ppt-master-richard/.env`), clone repo root, `~/.ppt-master/.env`.
 
-**A) AI generation** — `image_gen.py`. Set `IMAGE_BACKEND` plus the provider's `*_API_KEY` (`OPENAI_API_KEY`, `GEMINI_API_KEY`, etc.), and the pipeline calls it automatically. Run `python3 skills/ppt-master/scripts/image_gen.py --list-backends` for the full backend list. `gpt-image-2` is currently the best default.
+**A) AI generation** — `image_gen.py`. Set `IMAGE_BACKEND` plus the provider's `*_API_KEY` (`OPENAI_API_KEY`, `GEMINI_API_KEY`, etc.), and the pipeline calls it automatically. Run `python3 skills/ppt-master-richard/scripts/image_gen.py --list-backends` for the full backend list. `gpt-image-2` is currently the best default.
 
 **B) Web image search** — `image_search.py`. **Zero-config works**, but configure `PEXELS_API_KEY` / `PIXABAY_API_KEY` (both free) for higher-quality results. Without keys, search uses Openverse / Wikimedia Commons only; this is useful as a fallback, but image quality can be uneven because many results are ordinary user uploads. With keys, the default provider chain also appends Pexels / Pixabay, which materially improves modern stock photography, people, workplace, lifestyle, and illustration coverage. The default is quality-first: CC0, Public Domain, Pexels / Pixabay no-attribution licenses, CC BY, and CC BY-SA are considered together, and Executor adds a small inline credit whenever the selected image requires attribution. Use `--strict-no-attribution` only when a slide cannot tolerate any credit line. For high-impact covers, product shots, portraits, and branded scenes, prefer this order: user-provided high-resolution assets / AI generation > web search with Pexels / Pixabay keys > zero-config web search.
 
-> Full reference: [`image-generator.md`](./skills/ppt-master/references/image-generator.md) (AI) · [`image-searcher.md`](./skills/ppt-master/references/image-searcher.md) (web).
+> Full reference: [`image-generator.md`](./skills/ppt-master-richard/references/image-generator.md) (AI) · [`image-searcher.md`](./skills/ppt-master-richard/references/image-searcher.md) (web).
 
 ---
 
@@ -294,9 +294,9 @@ PPT Master reads the current process environment first, then the first `.env` fo
 | 📘 | [Getting Started](./docs/getting-started.md) | First deck in 3 steps, plus how to use templates, live preview, animations, narration, voice cloning (**new users start here**) |
 | 🆚 | [Why PPT Master](./docs/why-ppt-master.md) | How it compares to Gamma, Copilot, and other AI tools |
 | 🪟 | [Windows Installation](./docs/windows-installation.md) | Step-by-step setup guide for Windows users |
-| 📖 | [SKILL.md](./skills/ppt-master/SKILL.md) | Core workflow and rules |
-| 📐 | [Canvas Formats](./skills/ppt-master/references/canvas-formats.md) | PPT 16:9, Xiaohongshu, WeChat, and 10+ formats |
-| 🛠️ | [Scripts & Tools](./skills/ppt-master/scripts/README.md) | All scripts and commands |
+| 📖 | [SKILL.md](./skills/ppt-master-richard/SKILL.md) | Core workflow and rules |
+| 📐 | [Canvas Formats](./skills/ppt-master-richard/references/canvas-formats.md) | PPT 16:9, Xiaohongshu, WeChat, and 10+ formats |
+| 🛠️ | [Scripts & Tools](./skills/ppt-master-richard/scripts/README.md) | All scripts and commands |
 | 💼 | [Examples](./examples/README.md) | All example projects |
 | 🏗️ | [Technical Design](./docs/technical-design.md) | Architecture, design philosophy, why SVG |
 | ❓ | [FAQ](./docs/faq.md) | Model selection, cost, layout troubleshooting, custom templates |

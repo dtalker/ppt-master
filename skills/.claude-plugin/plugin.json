@@ -1,14 +1,14 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
-  "name": "ppt-master",
-  "description": "Generate natively editable PPTX from PDF / DOCX / URL / Markdown.",
+  "name": "ppt-master-richard",
+  "description": "Richard's optimized fork of ppt-master (base by Hugo He) — generate natively editable PPTX from PDF / DOCX / URL / Markdown, plus playable video/audio embedding and the eink-magazine visual style.",
   "author": {
     "name": "Hugo He",
     "email": "heyug3@gmail.com",
     "url": "https://www.hehugo.com/"
   },
-  "homepage": "https://github.com/hugohe3/ppt-master",
-  "repository": "https://github.com/hugohe3/ppt-master",
+  "homepage": "https://github.com/dtalker/ppt-master",
+  "repository": "https://github.com/dtalker/ppt-master",
   "license": "MIT",
   "keywords": [
     "pptx",

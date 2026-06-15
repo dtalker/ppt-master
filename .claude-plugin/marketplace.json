@@ -1,31 +1,30 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
-  "name": "ppt-master",
+  "name": "ppt-master-richard",
   "owner": {
-    "name": "Hugo He",
-    "email": "heyug3@gmail.com",
-    "url": "https://github.com/hugohe3"
+    "name": "Richard (dtalker)",
+    "url": "https://github.com/dtalker"
   },
   "metadata": {
-    "description": "PPT Master skill — AI generates natively editable PPTX from any document",
-    "version": "2.7.0"
+    "description": "PPT Master (Richard's optimized fork of Hugo He's ppt-master) — AI generates natively editable PPTX from any document, with playable video/audio embedding + the eink-magazine visual style",
+    "version": "2.10.1"
   },
   "plugins": [
     {
-      "name": "ppt-master",
+      "name": "ppt-master-richard",
       "source": {
         "source": "git-subdir",
-        "url": "https://github.com/hugohe3/ppt-master.git",
+        "url": "https://github.com/dtalker/ppt-master.git",
         "path": "skills"
       },
-      "description": "Generate natively editable PPTX from PDF / DOCX / URL / Markdown — real DrawingML shapes, text boxes, charts, and animations. Note: run `pip install -r requirements.txt` inside the installed plugin directory for the Python post-processing scripts to work.",
+      "description": "Richard's optimized fork of ppt-master (base by Hugo He). Generate natively editable PPTX from PDF / DOCX / URL / Markdown — real DrawingML shapes, text boxes, charts, animations — plus playable video/audio embedding (embed_media.py) and the eink-magazine visual style. Note: run `pip install -r requirements.txt` inside the installed plugin directory for the Python post-processing scripts to work.",
       "author": {
         "name": "Hugo He",
         "email": "heyug3@gmail.com",
         "url": "https://www.hehugo.com/"
       },
-      "homepage": "https://github.com/hugohe3/ppt-master",
-      "repository": "https://github.com/hugohe3/ppt-master",
+      "homepage": "https://github.com/dtalker/ppt-master",
+      "repository": "https://github.com/dtalker/ppt-master",
       "license": "MIT",
       "category": "productivity",
       "keywords": [

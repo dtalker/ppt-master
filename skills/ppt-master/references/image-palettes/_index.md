@@ -6,7 +6,7 @@ A **palette** is the deck's **color behavior** — proportion, role, temperament
 
 ---
 
-## 1. Catalog (14 palettes)
+## 1. Catalog (15 palettes)
 
 Each palette has its own file with: rendering compatibility matrix and a fewshot prompt snippet.
 
@@ -26,6 +26,7 @@ Each palette has its own file with: rendering compatibility matrix and a fewshot
 | [`frost-ice`](./frost-ice.md) | Near-white field with pale cool accents | Health / medical / beauty / premium SaaS |
 | [`sunset-gradient`](./sunset-gradient.md) | Warm gradient flow (pink → orange → purple) | Lifestyle / creative / travel / event |
 | [`earthy-dusty`](./earthy-dusty.md) | Muted desaturated earth tones, Morandi-adjacent | Interior / wellness / mindfulness / slow living |
+| [`eink-duotone`](./eink-duotone.md) | Near-monochrome ink-on-paper duotone, e-ink calm, tinted near-black + warm paper | Keynotes / 杂志感 / e-ink magazine decks (pairs with `eink-magazine`) |
 
 ---
 
@@ -73,6 +74,7 @@ Match `design_spec.md d. Style` + `e. Color Scheme` content vibe. First match wi
 | Health / medical / beauty / skincare | `frost-ice` | `nature-organic`, `earthy-dusty` |
 | Education / training / onboarding | `macaron` | `warm-earth` |
 | Methodology / Before-After / mindset shift | `mono-ink` | `editorial-classic` |
+| Keynote / 分享会 / e-ink magazine / 杂志感 / ink+paper | `eink-duotone` | `mono-ink`, `editorial-classic` |
 | Personal / lifestyle / brand story | `warm-earth` | `nature-organic`, `earthy-dusty` |
 | Interior / wellness / mindfulness / slow living | `earthy-dusty` | `warm-earth`, `nature-organic` |
 | Product launch / marketing / event | `vivid-launch` | `tech-neon`, `sunset-gradient` |
@@ -91,28 +93,28 @@ Match `design_spec.md d. Style` + `e. Color Scheme` content vibe. First match wi
 
 Some combinations clash. Use this matrix as a sanity check after auto-selection.
 
-| | cool-corp | warm-earth | tech-neon | editorial | macaron | mono-ink | vivid-launch | dark-cinem | duotone | nature-org | jewel-tone | frost-ice | sunset-grad | earthy-dusty |
-|---|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
-| vector-illustration | ✓✓ | ✓✓ | ✓ | ✓✓ | ✓✓ | ✓ | ✓✓ | ✓ | ✓ | ✓✓ | ✓ | ✓✓ | ✓ | ✓✓ |
-| flat | ✓✓ | ✓✓ | ✓✓ | ✓ | ✓✓ | ✓ | ✓✓ | ✓ | ✓ | ✓ | ✓ | ✓✓ | ✓✓ | ✓✓ |
-| minimalist-swiss | ✓✓ | ✓ | ✓ | ✓✓ | ✓ | ✓✓ | ✗ | ✓ | ✓✓ | ✓ | ✓ | ✓✓ | ✗ | ✓ |
-| glassmorphism | ✓✓ | ✓ | ✓✓ | ✓ | ✓✓ | ✗ | ✓ | ✓✓ | ✗ | ✓ | ✓ | ✓✓ | ✓ | ✓ |
-| 3d-isometric | ✓✓ | ✓ | ✓✓ | ✓ | ✓ | ✗ | ✓✓ | ✓✓ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ |
-| digital-dashboard | ✓✓ | ✗ | ✓✓ | ✓✓ | ✗ | ✓ | ✓ | ✓✓ | ✗ | ✗ | ✗ | ✓✓ | ✗ | ✗ |
-| corporate-photo | ✓✓ | ✓✓ | ✓ | ✓✓ | ✗ | ✗ | ✓ | ✓✓ | ✗ | ✓✓ | ✓✓ | ✓ | ✗ | ✓✓ |
-| blueprint | ✓✓ | ✗ | ✓✓ | ✓ | ✗ | ✓✓ | ✗ | ✓✓ | ✓ | ✗ | ✗ | ✓ | ✗ | ✗ |
-| editorial | ✓✓ | ✓✓ | ✓ | ✓✓ | ✓ | ✓✓ | ✓ | ✓ | ✓✓ | ✓ | ✓✓ | ✓ | ✓ | ✓✓ |
-| sketch-notes | ✓ | ✓✓ | ✗ | ✓ | ✓✓ | ✓ | ✓ | ✗ | ✗ | ✓✓ | ✗ | ✗ | ✗ | ✓ |
-| ink-notes | ✓ | ✓ | ✗ | ✓✓ | ✗ | ✓✓ | ✗ | ✗ | ✓ | ✗ | ✗ | ✓ | ✗ | ✓ |
-| chalkboard | ✗ | ✓ | ✗ | ✗ | ✓ | ✓ | ✗ | ✓✓ | ✓ | ✓ | ✗ | ✗ | ✗ | ✓ |
-| paper-cut | ✓ | ✓✓ | ✗ | ✓ | ✓✓ | ✗ | ✓ | ✗ | ✓ | ✓✓ | ✗ | ✓ | ✗ | ✓✓ |
-| watercolor | ✓ | ✓✓ | ✗ | ✓ | ✓✓ | ✗ | ✓ | ✓ | ✗ | ✓✓ | ✓ | ✓✓ | ✓✓ | ✓✓ |
-| warm-scene | ✓ | ✓✓ | ✗ | ✓ | ✓ | ✗ | ✓ | ✓✓ | ✓ | ✓✓ | ✓ | ✗ | ✓✓ | ✓ |
-| screen-print | ✓ | ✓ | ✓ | ✓✓ | ✓ | ✓ | ✓✓ | ✓✓ | ✓✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
-| vintage-poster | ✓ | ✓✓ | ✗ | ✓✓ | ✓ | ✓ | ✓ | ✓ | ✓✓ | ✓ | ✗ | ✗ | ✓ | ✓✓ |
-| fantasy-animation | ✗ | ✓✓ | ✗ | ✗ | ✓✓ | ✗ | ✓ | ✗ | ✗ | ✓✓ | ✗ | ✗ | ✓ | ✗ |
-| pixel-art | ✗ | ✓ | ✓✓ | ✗ | ✓ | ✓ | ✓✓ | ✓ | ✓ | ✗ | ✗ | ✗ | ✗ | ✗ |
-| nature | ✓ | ✓✓ | ✗ | ✓ | ✓ | ✗ | ✓ | ✗ | ✗ | ✓✓ | ✓ | ✓ | ✓ | ✓✓ |
+| | cool-corp | warm-earth | tech-neon | editorial | macaron | mono-ink | vivid-launch | dark-cinem | duotone | nature-org | jewel-tone | frost-ice | sunset-grad | earthy-dusty | eink-duo |
+|---|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+| vector-illustration | ✓✓ | ✓✓ | ✓ | ✓✓ | ✓✓ | ✓ | ✓✓ | ✓ | ✓ | ✓✓ | ✓ | ✓✓ | ✓ | ✓✓ | ✓ |
+| flat | ✓✓ | ✓✓ | ✓✓ | ✓ | ✓✓ | ✓ | ✓✓ | ✓ | ✓ | ✓ | ✓ | ✓✓ | ✓✓ | ✓✓ | ✓ |
+| minimalist-swiss | ✓✓ | ✓ | ✓ | ✓✓ | ✓ | ✓✓ | ✗ | ✓ | ✓✓ | ✓ | ✓ | ✓✓ | ✗ | ✓ | ✓✓ |
+| glassmorphism | ✓✓ | ✓ | ✓✓ | ✓ | ✓✓ | ✗ | ✓ | ✓✓ | ✗ | ✓ | ✓ | ✓✓ | ✓ | ✓ | ✗ |
+| 3d-isometric | ✓✓ | ✓ | ✓✓ | ✓ | ✓ | ✗ | ✓✓ | ✓✓ | ✗ | ✓ | ✓ | ✓ | ✓ | ✓ | ✗ |
+| digital-dashboard | ✓✓ | ✗ | ✓✓ | ✓✓ | ✗ | ✓ | ✓ | ✓✓ | ✗ | ✗ | ✗ | ✓✓ | ✗ | ✗ | ✗ |
+| corporate-photo | ✓✓ | ✓✓ | ✓ | ✓✓ | ✗ | ✗ | ✓ | ✓✓ | ✗ | ✓✓ | ✓✓ | ✓ | ✗ | ✓✓ | ✗ |
+| blueprint | ✓✓ | ✗ | ✓✓ | ✓ | ✗ | ✓✓ | ✗ | ✓✓ | ✓ | ✗ | ✗ | ✓ | ✗ | ✗ | ✓ |
+| editorial | ✓✓ | ✓✓ | ✓ | ✓✓ | ✓ | ✓✓ | ✓ | ✓ | ✓✓ | ✓ | ✓✓ | ✓ | ✓ | ✓✓ | ✓✓ |
+| sketch-notes | ✓ | ✓✓ | ✗ | ✓ | ✓✓ | ✓ | ✓ | ✗ | ✗ | ✓✓ | ✗ | ✗ | ✗ | ✓ | ✗ |
+| ink-notes | ✓ | ✓ | ✗ | ✓✓ | ✗ | ✓✓ | ✗ | ✗ | ✓ | ✗ | ✗ | ✓ | ✗ | ✓ | ✓✓ |
+| chalkboard | ✗ | ✓ | ✗ | ✗ | ✓ | ✓ | ✗ | ✓✓ | ✓ | ✓ | ✗ | ✗ | ✗ | ✓ | ✗ |
+| paper-cut | ✓ | ✓✓ | ✗ | ✓ | ✓✓ | ✗ | ✓ | ✗ | ✓ | ✓✓ | ✗ | ✓ | ✗ | ✓✓ | ✗ |
+| watercolor | ✓ | ✓✓ | ✗ | ✓ | ✓✓ | ✗ | ✓ | ✓ | ✗ | ✓✓ | ✓ | ✓✓ | ✓✓ | ✓✓ | ✗ |
+| warm-scene | ✓ | ✓✓ | ✗ | ✓ | ✓ | ✗ | ✓ | ✓✓ | ✓ | ✓✓ | ✓ | ✗ | ✓✓ | ✓ | ✗ |
+| screen-print | ✓ | ✓ | ✓ | ✓✓ | ✓ | ✓ | ✓✓ | ✓✓ | ✓✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| vintage-poster | ✓ | ✓✓ | ✗ | ✓✓ | ✓ | ✓ | ✓ | ✓ | ✓✓ | ✓ | ✗ | ✗ | ✓ | ✓✓ | ✓ |
+| fantasy-animation | ✗ | ✓✓ | ✗ | ✗ | ✓✓ | ✗ | ✓ | ✗ | ✗ | ✓✓ | ✗ | ✗ | ✓ | ✗ | ✗ |
+| pixel-art | ✗ | ✓ | ✓✓ | ✗ | ✓ | ✓ | ✓✓ | ✓ | ✓ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ |
+| nature | ✓ | ✓✓ | ✗ | ✓ | ✓ | ✗ | ✓ | ✗ | ✗ | ✓✓ | ✓ | ✓ | ✓ | ✓✓ | ✗ |
 
 ✓✓ recommended | ✓ acceptable | ✗ avoid
 

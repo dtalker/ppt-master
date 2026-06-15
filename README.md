@@ -7,7 +7,12 @@
 
 English | [中文](./README_CN.md)
 
-> **🔱 Fork note (`dtalker/ppt-master`).** This is a fork of [`hugohe3/ppt-master`](https://github.com/hugohe3/ppt-master) with one added capability: **playable video / audio embedding** (the upstream `svg_to_pptx.py` renders static slides only). New `scripts/embed_media.py` (Step 7.4) embeds movies/audio into the exported PPTX via **named slots** (tag a rect with `data-media-slot` — no page numbers or coordinates), and **auto-wraps audio into a poster video** so it plays in Keynote. Guide: [`skills/ppt-master/references/media-embedding.md`](./skills/ppt-master/references/media-embedding.md). All credit for the base project goes to the upstream author.
+> **🔱 Fork note (`dtalker/ppt-master`).** This is a fork of [`hugohe3/ppt-master`](https://github.com/hugohe3/ppt-master) with two additions:
+>
+> 1. **Playable video / audio embedding** (the upstream `svg_to_pptx.py` renders static slides only). New `scripts/embed_media.py` (Step 7.4) embeds movies/audio into the exported PPTX via **named slots** (tag a rect with `data-media-slot` — no page numbers or coordinates), and **auto-wraps audio into a poster video** so it plays in Keynote. Guide: [`skills/ppt-master/references/media-embedding.md`](./skills/ppt-master/references/media-embedding.md).
+> 2. **`eink-magazine` visual style + `eink-duotone` palette** — an "电子墨水 × Monocle 杂志" editorial aesthetic (ink+paper duotone, serif-display headlines, monospace magazine chrome, dark↔light hero rhythm, no cards) adapted from [`op7418/guizang-ppt-skill`](https://github.com/op7418/guizang-ppt-skill). The source skill's WebGL fluid background and swipe interactivity are web-only and don't survive in PPTX; this ports the static design language (palette / typography / chrome / layout rhythm) with PPT-safe font mapping. See [`visual-styles/eink-magazine.md`](./skills/ppt-master/references/visual-styles/eink-magazine.md) and [`image-palettes/eink-duotone.md`](./skills/ppt-master/references/image-palettes/eink-duotone.md).
+>
+> All credit for the base project goes to the upstream author, and for the e-ink magazine design language to guizang-ppt-skill.
 
 <p align="center">
   <sub>This project is kept free and open source with the support of <a href="https://www.packyapi.com/register?aff=ppt-master">PackyCode</a>, <a href="https://apikey.fun/register?aff=PPT-MASTER">APIKEY.FUN</a>, <a href="https://runapi.co/register?aff=WMLJ">RunAPI</a> and other sponsors.</sub>

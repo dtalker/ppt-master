@@ -30,6 +30,7 @@ Each style has its own file with: shape & decoration, typography character, colo
 | [`photo-editorial`](./photo-editorial.md) | Full-bleed photography dominates, text points & captions | Architecture, design, fashion, culture, photo-led | `corporate-photo` |
 | [`data-journalism`](./data-journalism.md) | Multi-column micro-charts, sidebars, source lines, dense | Finance, market reviews, research, data reports | `editorial` |
 | [`brutalist`](./brutalist.md) | Newsprint density, ruled boxes, raw structure, flat | Annual reviews, research digests, manifestos | `screen-print` / `editorial` |
+| [`eink-magazine`](./eink-magazine.md) | E-ink ink+paper duotone, serif-display + mono chrome, dark↔light hero rhythm, no cards | Keynotes, founder talks, 分享会/发布会, aesthetic-first decks | `editorial` / `ink-notes` |
 
 ### 1.3 Expressive / print
 
@@ -77,6 +78,7 @@ Each style has its own file with: shape & decoration, typography character, colo
 | Cultural / folk / festival / children / sustainability | `paper-cut` | `sketch-notes` |
 | Education / training / onboarding / 教学 | `sketch-notes` | `paper-cut` |
 | Methodology / before-after / manifesto / 方法论 | `ink-notes` | `editorial` |
+| Keynote / founder talk / 分享会 / 发布会 / e-ink magazine / 杂志感 | `eink-magazine` | `editorial` |
 | Classroom / tutorial / academic / 课堂 | `chalkboard` | `sketch-notes` |
 | Gaming / retro / 8-bit / 复古游戏 | `pixel-art` | `vintage-poster` |
 

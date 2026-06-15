@@ -58,6 +58,7 @@ description: >
 | `${SKILL_DIR}/scripts/total_md_split.py` | Speaker notes splitting |
 | `${SKILL_DIR}/scripts/finalize_svg.py` | SVG post-processing (unified entry) |
 | `${SKILL_DIR}/scripts/svg_to_pptx.py` | Export to PPTX |
+| `${SKILL_DIR}/scripts/embed_media.py` | Embed video / audio into the exported PPTX (Step 7.4) |
 | `${SKILL_DIR}/scripts/update_spec.py` | Propagate a `spec_lock.md` color / font_family change across all generated SVGs |
 
 For complete tool documentation, see `${SKILL_DIR}/scripts/README.md`.
@@ -532,6 +533,27 @@ python3 ${SKILL_DIR}/scripts/svg_to_pptx.py <project_path>
 > only when the user explicitly asks for strict line-layout fidelity or when a
 > layout-tight page must keep every dy-stacked line as its own text frame. The
 > merge detector is conservative; mixed-layout text falls back to per-line frames.
+
+**Step 7.4** — Embed video / audio (only when the deck has media):
+
+`svg_to_pptx.py` renders **static slides only** — it has no path for movies/audio. When a slide needs a playable video or audio (demo recording, opening song, interaction clip), use **named slots** so nobody types page numbers or coordinates:
+
+1. **Executor tags the media placeholder rect** in the SVG with `data-media-slot`:
+   ```xml
+   <rect data-media-slot="song" x="96" y="236" width="312" height="312" rx="20" fill="#13294A"/>
+   ```
+   The slot's slide (its position in `sorted(svg_output/*.svg)`) and its `x/y/width/height` ARE the embed target.
+2. **Attach a file to each slot** — one line, no page/coords:
+   ```bash
+   python3 ${SKILL_DIR}/scripts/embed_media.py <project_path> \
+       --put song=assets/song.mp3 --put demo=assets/demo.mp4
+   # writes exports/<name>_media.pptx
+   ```
+   `embed_media.py --put` with no other args lists the available slots.
+
+Handled for you: **audio auto-wraps to a poster `.mp4`** (Keynote won't reliably play embedded audio); **video posters auto-extract**; px→EMU scaling matches the deck. ffmpeg required.
+
+Files/manifest alternatives (same engine): list slots in `media.json` (`{"slot":"song","file":"..."}`) or `spec_lock.md ## media` (`- @song | assets/song.mp3`). Explicit page+coords (`{"page":"P02","x":..}`) still works for un-tagged decks. Full guide: [`references/media-embedding.md`](references/media-embedding.md).
 
 **Optional animation flags** (the defaults already enable rich entrance animations — adjust only when the user asks for something different):
 - `-t <effect>` — page transition. Default `fade`. Options: `fade` / `push` / `wipe` / `split` / `strips` / `cover` / `random` / `none`.

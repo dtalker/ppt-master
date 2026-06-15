@@ -346,6 +346,24 @@ Use `attribution_text` from the manifest entry as the **starting point**, then c
 
 **The manifest is the single source of truth for credits.** Do not duplicate license info into speaker notes or any other artifact.
 
+### 6.2 Playable media placeholders (video / audio) — tag a slot
+
+SVG is static — a movie or audio clip can't live inside it. When a page needs **playable** media (demo recording, opening song, interaction clip), the Executor reserves a **named slot** so the user never types a page number or a coordinate:
+
+Draw the placeholder rect at the media spot — a navy "screen" rect (clean 16:9, e.g. `width:540 height:304`, or square for a music player) with a gold play button reads well and doubles as the static-PDF fallback — and **tag it** with `data-media-slot`:
+
+```xml
+<rect data-media-slot="demo" x="64" y="232" width="540" height="304" rx="12" fill="#13294A" .../>
+```
+
+The slot's slide (its position in `sorted(svg_output/*.svg)`) and its `x/y/width/height` become the embed target. After export, the file is attached with one line — no page/coords:
+
+```bash
+python3 scripts/embed_media.py <project> --put demo=assets/demo.mp4 --put song=assets/song.mp3
+```
+
+Audio auto-wraps to a poster video (Keynote won't reliably play embedded audio). Do **NOT** hand-roll `python-pptx add_movie`. Full guide: [`media-embedding.md`](media-embedding.md). (Untagged decks can still use explicit `## media` page+coords rows.)
+
 ---
 
 ## 7. Font Usage

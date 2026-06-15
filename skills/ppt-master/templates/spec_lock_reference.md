@@ -147,6 +147,20 @@
 >
 > **Strategist source**: copy from `design_spec.md §VII Visualization Reference List` — only the rows whose `reference template path` points to a `templates/charts/` file. Pages marked `no-template-match` in §VII MUST NOT appear here.
 
+## media
+- @song | assets/song.mp3
+- @demo | assets/demo.mp4 | assets/poster.jpg
+
+> One line per playable video / audio item. **Preferred (coordinate-free):**
+> `- @<slot> | <file> | [poster]` — `<slot>` is a `data-media-slot="<slot>"` rect the Executor
+> tags in the SVG; `embed_media.py` (Step 7.4) reads the rect's slide + x/y/w/h automatically.
+> (You can also skip this section and just run `embed_media.py <proj> --put <slot>=<file>`.)
+> Explicit form (no slot tag): `- <page> | <file> | <x,y,w,h> | [poster]` where `<page>` =
+> `P<NN>` (1-based position) or svg basename and `x,y,w,h` are canvas px.
+> `svg_to_pptx.py` renders static slides only; this embeds media **after** export.
+> **Audio auto-wraps into a poster `.mp4`** (Keynote won't reliably play embedded audio).
+> **Whole section omitted** → deck has no playable media. Full guide: `references/media-embedding.md`.
+
 ## forbidden
 - Mixing icon libraries
 - rgba()

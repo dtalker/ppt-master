@@ -7,6 +7,8 @@
 
 English | [中文](./README_CN.md)
 
+> **🔱 Fork note (`dtalker/ppt-master`).** This is a fork of [`hugohe3/ppt-master`](https://github.com/hugohe3/ppt-master) with one added capability: **playable video / audio embedding** (the upstream `svg_to_pptx.py` renders static slides only). New `scripts/embed_media.py` (Step 7.4) embeds movies/audio into the exported PPTX via **named slots** (tag a rect with `data-media-slot` — no page numbers or coordinates), and **auto-wraps audio into a poster video** so it plays in Keynote. Guide: [`skills/ppt-master/references/media-embedding.md`](./skills/ppt-master/references/media-embedding.md). All credit for the base project goes to the upstream author.
+
 <p align="center">
   <sub>This project is kept free and open source with the support of <a href="https://www.packyapi.com/register?aff=ppt-master">PackyCode</a>, <a href="https://apikey.fun/register?aff=PPT-MASTER">APIKEY.FUN</a>, <a href="https://runapi.co/register?aff=WMLJ">RunAPI</a> and other sponsors.</sub>
 </p>
